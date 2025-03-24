@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penguin E-Commerce</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <style>
+        .group:hover .dropdown-menu {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: black;
+            transition: width 0.3s ease;
+        }
+        nav {
+            transition: all 0.3s ease-in-out;
+        }
+        #home .overlay {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(37, 99, 235, 0.5));
+}
+
+#home a {
+    transition: all 0.3s ease;
+}
+
+#home a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+        nav.scrolled {
+            background: rgba(37, 99, 235, 0.9);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link:hover {
+            color: #FFD700; 
+            transform: scale(1.05);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hover-gradient:hover {
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .menu-item {
+            transition: all 0.3s ease;
+        }
+        
+        .menu-item:hover i {
+            transform: scale(1.2);
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #2563EB !important;
+            background: white;
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #2563EB !important;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-gradient-to-r from-blue-500 to-blue-700 shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <img src="https://media.discordapp.net/attachments/1336166371133882453/1353558219435409512/891627F4-F762-4556-9B66-DF19EE04FD28.png?ex=67e216d3&is=67e0c553&hm=62c26cb45b00f425d3c3e534891d47a962af33d68a9f8a6d739def8d3d8e945f&=&format=webp&quality=lossless" alt="Penguin Logo" class="h-10 hover:scale-110 transition-transform duration-300 Rounded-pill">
+                    <span class="text-2xl font-bold text-white">Penguin Services</span>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="nav-link text-white hover:text-white-200 font-medium flex items-center space-x-2">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    <div class="relative group">
+                        <button class="nav-link flex items-center text-white hover:text-gray-200 font-medium space-x-2">
+                            <i class="fas fa-concierge-bell"></i>
+                            <span>Services</span>
+                            <i class="fas fa-chevron-down ml-2 text-sm transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute hidden bg-white shadow-xl dropdown-menu mt-2 w-64 rounded-lg overflow-hidden border border-gray-100 group-hover:block">
+                            <a href="#bridal" class="menu-item flex items-center px-6 py-3 hover:bg-blue-100">
+                                <i class="fas fa-car-side mr-3"></i>
+                                <span>Bridal Car Services</span>
+                            </a>
+                            <a href="#towing" class="menu-item flex items-center px-6 py-3 hover:bg-blue-100">
+                                <i class="fas fa-truck-pickup mr-3"></i>
+                                <span>Towing Services 24/7</span>
+                            </a>
+                            <a href="#trucking" class="menu-item flex items-center px-6 py-3 hover:bg-blue-100">
+                                <i class="fas fa-truck mr-3"></i>
+                                <span>Trucking Services</span>
+                            </a>
+                            <a href="#furniture" class="menu-item flex items-center px-6 py-3 hover:bg-blue-100">
+                                <i class="fas fa-couch mr-3"></i>
+                                <span>Furniture Hotel and Residential</span>
+                            </a>
+                            <a href="#auto-parts" class="menu-item flex items-center px-6 py-3 hover:bg-blue-100">
+                                <i class="fas fa-cogs mr-3"></i>
+                                <span>Auto Parts</span>
+                            </a>
+                            <a href="#construction" class="menu-item flex items-center px-6 py-3 hover:bg-blue-100">
+                                <i class="fas fa-hard-hat mr-3"></i>
+                                <span>General Construction and Maintenance</span>
+                            </a>
+                            <a href="#heavy-equipment" class="menu-item flex items-center px-6 py-3 hover:bg-blue-100">
+                                <i class="fas fa-dumpster mr-3"></i>
+                                <span>Heavy Equipment</span>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#about" class="nav-link text-white hover:text-gray-200 font-medium flex items-center space-x-2">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About Us</span>
+                    </a>
+                    <a href="#contact" class="nav-link text-white hover:text-gray-200 font-medium flex items-center space-x-2">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact Us</span>
+                    </a>
+                </div>
+
+                <!-- Search Button -->
+                <div class="relative hidden md:block">
+                    <input type="text" placeholder="Search..." 
+                        class="border border-gray-300 rounded-full px-5 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent w-64 transition-all duration-300 focus:w-72">
+                    <button class="absolute right-4 top-2.5 text-gray-500 hover:text-blue-300 transition-colors">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white hover:text-gray-200 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative h-screen">
+        <!-- Background Video -->
+        <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover">
+            <source src="https://videos.pexels.com/video-files/3125427/3125427-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
+
+    <!-- Gradient Overlay -->
+    <div class="absolute inset-0 overlay"></div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+        <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+            Welcome to <span class="text-blue-400">Penguin Services</span>
+        </h1>
+        <p class="text-lg md:text-xl mt-4">
+            Your trusted partner for premium services and solutions.
+        </p>
+        <div class="mt-8 flex space-x-4">
+            <a href="#contact" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg">
+                Get Started
+            </a>
+            <a href="#services" class="border-2 border-white px-8 py-3 rounded-lg hover:border-blue-400 hover:text-blue-400 transition-all">
+                Explore Services
+            </a>
+        </div>
+    </div>
+</section>
+
+    <section id="bridal" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4">Bridal Car Services</h2>
+            <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Experience luxury and elegance on your special day with our premium bridal car services.</p>
+            
+            <!-- Swiper Slider -->
+            <div class="swiper bridalSwiper mb-12">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://i0.wp.com/penguin.asia/wp-content/uploads/2019/12/9561D5F6-20EC-4EC2-A596-2793D9E8D862.jpeg?ssl=1" alt="Bridal Car 1" 
+                            class="w-full h-[500px] object-cover rounded-lg">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://i0.wp.com/penguin.asia/wp-content/uploads/2019/12/7E66AC38-B37E-4C64-8DFD-5665A76B77A5.jpeg?ssl=1" alt="Bridal Car 2" 
+                            class="w-full h-[500px] object-cover rounded-lg">
+                    </div>
+                    <!-- Add more slides as needed -->
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 bg-gray-50 rounded-xl transform hover:-translate-y-2 transition-transform">
+                    <i class="fas fa-crown text-3xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Luxury Fleet</h3>
+                    <p class="text-gray-600">Choose from our selection of premium vehicles for your special day.</p>
+                </div>
+                <!-- Add more feature cards -->
+            </div>
+        </div>
+    </section>
+
+    <section id="towing" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4">24/7 Towing Services</h2>
+            <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Professional towing services available round the clock for your peace of mind.</p>
+            
+            <div class="swiper towingSwiper mb-12">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://i0.wp.com/penguin.asia/wp-content/uploads/2021/08/9EBB3983-35DA-44A6-8A98-61EA6AB5DA62.jpeg?ssl=1" alt="Towing Service 1" 
+                            class="w-full h-[500px] object-cover rounded-lg">
+                    </div>
+                    <!-- Add more slides -->
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="heavy-equipment" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4">Heavy Equipment Services</h2>
+            <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+                Reliable and professional heavy equipment services for construction and industrial needs.
+            </p>
+            
+            <!-- Swiper Slider -->
+            <div class="swiper heavyEquipmentSwiper mb-12">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://penguin.asia/wp-content/uploads/2021/08/FBD047EE-1EC1-4864-AD74-75A0C6E75058-1024x614.jpeg" alt="Heavy Equipment 1" 
+                            class="w-full h-[500px] object-cover rounded-lg">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://www.cbnme.com/wp-content/uploads/2019/11/pr-1.png" alt="Heavy Equipment 2" 
+                            class="w-full h-[500px] object-cover rounded-lg">
+                    </div>
+                    <!-- Add more slides as needed -->
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 bg-gray-50 rounded-xl transform hover:-translate-y-2 transition-transform">
+                    <i class="fas fa-dumpster text-3xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Wide Range of Equipment</h3>
+                    <p class="text-gray-600">From excavators to bulldozers, we provide a variety of heavy equipment.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-xl transform hover:-translate-y-2 transition-transform">
+                    <i class="fas fa-tools text-3xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Expert Operators</h3>
+                    <p class="text-gray-600">Our team of skilled operators ensures efficient and safe operations.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-xl transform hover:-translate-y-2 transition-transform">
+                    <i class="fas fa-industry text-3xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Industrial-Grade Solutions</h3>
+                    <p class="text-gray-600">Tailored services for construction, mining, and industrial projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trucking" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4">Trucking Services</h2>
+            <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+                Reliable and efficient trucking services tailored to meet your transportation needs.
+            </p>
+            
+            <!-- Swiper Slider -->
+            <div class="swiper truckingSwiper mb-12">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://penguin.asia/wp-content/uploads/2021/08/BE2AA1A5-DF28-4169-BFDF-AC874B09023C-1024x475.png" alt="Trucking Service 1" 
+                            class="w-full h-[500px] object-cover rounded-lg">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://i1.wp.com/penguin.asia/wp-content/uploads/2021/08/4F236444-55EF-40A3-BE00-E36C00CBDCCF.jpeg?ssl=1" alt="Trucking Service 2" 
+                            class="w-full h-[500px] object-cover rounded-lg">
+                    </div>
+                    <!-- Add more slides as needed -->
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <i class="fas fa-truck text-3xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Nationwide Coverage</h3>
+                    <p class="text-gray-600">We provide trucking services across the country with guaranteed reliability.</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <i class="fas fa-box text-3xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Secure Transport</h3>
+                    <p class="text-gray-600">Your goods are transported safely with our secure trucking solutions.</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <i class="fas fa-clock text-3xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">On-Time Delivery</h3>
+                    <p class="text-gray-600">We ensure timely delivery of your goods, every time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="furniture" class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-4">Furniture Hotel and Residential Services</h2>
+        <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            High-quality furniture solutions for hotels and residential spaces, tailored to your needs.
+        </p>
+        
+        <!-- Swiper Slider -->
+        <div class="swiper furnitureSwiper mb-12">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://surenspace.com/wp-content/uploads/2023/09/A-List-of-Furniture-in-Hotel-Rooms-Comprehensive-Guide-2025-surensapce.webp" alt="Furniture Service 1" 
+                        class="w-full h-[500px] object-cover rounded-lg">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://images.squarespace-cdn.com/content/v1/582b26e3ff7c50bbbe254682/1594833992950-93PLNKPEWEXX6ZQ2OJ6Y/Luxury-Home-Furniture-Installation.jpg" alt="Furniture Service 2" 
+                        class="w-full h-[500px] object-cover rounded-lg">
+                </div>
+                <!-- Add more slides as needed -->
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-6 bg-gray-50 rounded-xl transform hover:-translate-y-2 transition-transform">
+                <i class="fas fa-bed text-3xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Custom Designs</h3>
+                <p class="text-gray-600">Tailored furniture designs to match your hotel's or home's unique style.</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-xl transform hover:-translate-y-2 transition-transform">
+                <i class="fas fa-couch text-3xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Premium Materials</h3>
+                <p class="text-gray-600">We use only the finest materials to ensure durability and elegance.</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-xl transform hover:-translate-y-2 transition-transform">
+                <i class="fas fa-tools text-3xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Installation Services</h3>
+                <p class="text-gray-600">Our team provides professional installation for a hassle-free experience.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="auto-parts" class="py-20 px-4 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-4">Auto Parts </h2>
+        <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            High-quality auto parts and accessories to keep your vehicle running smoothly.
+        </p>
+        <div class="swiper autoPartsSwiper mb-12">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://www.shutterstock.com/image-photo/mechanic-using-wrench-while-working-600nw-2184125681.jpg" alt="Auto Part 1" 
+                        class="w-full h-[500px] object-cover rounded-lg">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://shippei.com/wp-content/themes/yootheme/cache/76/car-parts-spares-and-accesoires-auto-service-and-2021-08-29-02-14-12-utc-scaled-7642eb2a.jpeg" alt="Auto Part 2" 
+                        class="w-full h-[500px] object-cover rounded-lg">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <i class="fas fa-cogs text-3xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Wide Range of Parts</h3>
+                <p class="text-gray-600">From engine components to accessories, we have everything you need.</p>
+            </div>
+            <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <i class="fas fa-tools text-3xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Expert Assistance</h3>
+                <p class="text-gray-600">Our team is here to help you find the right parts for your vehicle.</p>
+            </div>
+            <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <i class="fas fa-shipping-fast text-3xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Fast Delivery</h3>
+                <p class="text-gray-600">Get your parts delivered quickly and efficiently to your doorstep.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="construction" class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-4">General Construction and Maintenance Services</h2>
+        <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Comprehensive construction and maintenance solutions for residential, commercial, and industrial projects.
+        </p>
+        
+        <!-- Swiper Slider -->
+        <div class="swiper constructionSwiper mb-12">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://cypex-group.com/wp-content/uploads/2022/08/General-maintenance-with-logo-1568x871-1.jpg" alt="Construction Service 1" 
+                        class="w-full h-[500px] object-cover rounded-lg">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwtqeiwNMRNqeHDu0BriO9grFfwBBHTTNxF3WTKMCK9rDkIpnNBb2IENL66TiPzK5GJdE&usqp=CAU" alt="Construction Service 2" 
+                        class="w-full h-[500px] object-cover rounded-lg">
+                </div>
+                <!-- Add more slides as needed -->
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-6 bg-gray-50 rounded-xl transform hover:-translate-y-2 transition-transform">
+                <i class="fas fa-hammer text-3xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Residential Construction</h3>
+                <p class="text-gray-600">Building and renovating homes with precision and care.</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-xl transform hover:-translate-y-2 transition-transform">
+                <i class="fas fa-building text-3xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Commercial Projects</h3>
+                <p class="text-gray-600">Expert solutions for offices, retail spaces, and more.</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-xl transform hover:-translate-y-2 transition-transform">
+                <i class="fas fa-tools text-3xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Maintenance Services</h3>
+                <p class="text-gray-600">Reliable maintenance to keep your property in top condition.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-4">About Us</h2>
+        <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            At Penguin Services, we are dedicated to providing top-notch solutions for all your needs. With years of experience and a commitment to excellence, we strive to deliver services that exceed expectations.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- About Us Content -->
+            <div>
+                <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+                <p class="text-gray-600 mb-6">
+                    Our mission is to provide reliable, high-quality services that cater to a wide range of industries and individual needs. We aim to build long-lasting relationships with our clients through trust and exceptional service.
+                </p>
+                <h3 class="text-2xl font-bold mb-4">Why Choose Us?</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li>Experienced and professional team</li>
+                    <li>Wide range of services tailored to your needs</li>
+                    <li>Commitment to quality and customer satisfaction</li>
+                    <li>Affordable and competitive pricing</li>
+                </ul>
+            </div>
+            <div>
+                <img src="https://media.discordapp.net/attachments/1336166371133882453/1353558219435409512/891627F4-F762-4556-9B66-DF19EE04FD28.png?ex=67e216d3&is=67e0c553&hm=62c26cb45b00f425d3c3e534891d47a962af33d68a9f8a6d739def8d3d8e945f&=&format=webp&quality=lossless" alt="About Us" class="w-full h-auto rounded-lg shadow-lg">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="py-20 px-4 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-4">Contact Us</h2>
+        <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Have questions or need assistance? Get in touch with us today!
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Contact Form -->
+            <form action="#" method="POST" class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" id="name" name="name" required 
+                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" required 
+                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                    <textarea id="message" name="message" rows="4" required 
+                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                </div>
+                <button type="submit" 
+                    class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-all">
+                    Send Message
+                </button>
+            </form>
+
+            <!-- Contact Details -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">Get in Touch</h3>
+                <p class="text-gray-600 mb-4">
+                    Feel free to reach out to us via phone, email, or visit our office.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-center space-x-4">
+                        <i class="fas fa-phone-alt text-blue-600 text-xl"></i>
+                        <span class="text-gray-700">+1 (123) 456-7890</span>
+                    </li>
+                    <li class="flex items-center space-x-4">
+                        <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                        <span class="text-gray-700">info@penguinservices.com</span>
+                    </li>
+                    <li class="flex items-center space-x-4">
+                        <i class="fas fa-map-marker-alt text-blue-600 text-xl"></i>
+                        <span class="text-gray-700">123 Penguin Street, Antarctica</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Add similar sections for trucking and construction -->
+
+    <!-- Initialize Swiper Sliders -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active link highlighting
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('text-blue-600');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('text-blue-600');
+                }
+            });
+        });
+
+        // Common Swiper configuration
+        const swiperConfig = {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            }
+        };
+
+        // Initialize sliders
+        new Swiper('.bridalSwiper', swiperConfig);
+        new Swiper('.towingSwiper', swiperConfig);
+
+        // Intersection Observer for animation
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('opacity-0');
+            observer.observe(section);
+        });
+    });
+    </script>
+</body>
+</html>
